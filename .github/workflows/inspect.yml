@@ -12,4 +12,4 @@ jobs:
       - name: print kernel
         run: uname -a
       - name: listing
-        run: echo "There are `ls -l| wc-l` files "
+        run: echo "There are `ls -l| wc -l` files "
