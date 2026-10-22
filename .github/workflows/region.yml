@@ -1,0 +1,9 @@
+name: repo-env-demo
+on: push
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step one
+        run: echo "region is ${{ vars.DEPLOY_REGION }}" 
+
