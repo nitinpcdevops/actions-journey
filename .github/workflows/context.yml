@@ -1,4 +1,4 @@
-name:context-check
+name: context-check
 on: push
 jobs:
   verify:
