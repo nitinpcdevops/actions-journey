@@ -1,12 +1,14 @@
-name: site-check
+name:context-check
 on: push
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-      - name: Read the readme
-        run: cat README.md
-      - name: Show the Python version
-        run: python3 --version
+      - name: Show the context
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch name: ${{ github.ref_name }}"
+          echo "commit id: ${{ github.sha }}"
+          echo "event name: ${{ github.event_name }}"
+          echo "OS: ${{ runner.os }}"
+
