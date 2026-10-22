@@ -1,0 +1,10 @@
+name: label-check
+on: push
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show the context
+        run: |
+          echo "${{ format('build-{0}-{1}', github.run_number, github.ref_name) }}"
+
