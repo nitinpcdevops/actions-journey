@@ -1,0 +1,24 @@
+name: secret-demo
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.ver.outputs.version }}
+    steps:
+      - name: step one
+        id: ver
+        run: echo "version=1.4.2" >> "$GITHUB_OUTPUT"
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: testing
+        run: echo "testing"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [ build, test ]
+    steps:
+      - name: deploy
+        run: "Deploying ${{ needs.build.outputs.version }}"
+
